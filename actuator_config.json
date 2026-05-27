@@ -1,0 +1,88 @@
+{
+    "port": "COM4",
+    "baudrate": 115200,
+    "protocol_version": 2.0,
+    "base_motor_id": 1,
+    "second_motor_id": 2,
+    "third_motor_id": 3,
+    "actuators": [
+        {
+            "id": 1,
+            "model": "XL330-M288",
+            "initial_mode": 3,
+            "limits": {
+                "position": {
+                    "min": 0,
+                    "max": 4095
+                },
+                "velocity": {
+                    "max": 445,
+                    "min": -445
+                },
+                "current": {
+                    "max": 1750,
+                    "min": -1750
+                },
+                "temperature": {
+                    "max": 70
+                },
+                "input_voltage": {
+                    "min": 3.5,
+                    "max": 7.0
+                }
+            }
+        },
+        {
+            "id": 2,
+            "model": "XL330-M288",
+            "initial_mode": 3,
+            "limits": {
+                "position": {
+                    "min": 0,
+                    "max": 4095
+                },
+                "velocity": {
+                    "max": 445,
+                    "min": -445
+                },
+                "current": {
+                    "max": 1750,
+                    "min": -1750
+                },
+                "temperature": {
+                    "max": 70
+                },
+                "input_voltage": {
+                    "min": 3.5,
+                    "max": 7.0
+                }
+            }
+        },
+        {
+            "id": 3,
+            "model": "XL330-M288",
+            "initial_mode": 3,
+            "limits": {
+                "position": {
+                    "min": 0,
+                    "max": 4095
+                },
+                "velocity": {
+                    "max": 445,
+                    "min": -445
+                },
+                "current": {
+                    "max": 1750,
+                    "min": -1750
+                },
+                "temperature": {
+                    "max": 70
+                },
+                "input_voltage": {
+                    "min": 3.5,
+                    "max": 7.0
+                }
+            }
+        }
+    ]
+}

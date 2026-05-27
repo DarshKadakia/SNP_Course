@@ -1,0 +1,189 @@
+{
+    "robot_name": "SNP Differential Drive Robot",
+    "robot_type": "differential_drive",
+
+    "drive": {
+        "wheel_diameter_cm": 8.0,
+        "wheel_base_cm": 23.0,
+        "counts_per_rev_left": 530,
+        "counts_per_rev_right": 510,
+        "dist_per_tick_left_cm": 0.04737,
+        "dist_per_tick_right_cm": 0.04927,
+        "max_linear_velocity": 0.3,
+        "max_angular_velocity": 1.0
+    },
+
+    "arena": {
+        "length_cm": 90.0,
+        "width_cm": 90.0
+    },
+
+    "communication": {
+        "serial": {
+            "baudrate": 115200,
+            "header_byte": "0xAA",
+            "timeout_s": 0.1
+        },
+        "wifi": {
+            "default_robot_port": 5000,
+            "default_local_port": 5000,
+            "loop_hz": 50
+        }
+    },
+
+    "sensors": {
+        "imu": {
+            "type": "MPU6050",
+            "available": true,
+            "accel_range_g": 2,
+            "gyro_range_dps": 250
+        },
+        "ultrasonic_air": {
+            "type": "HC-SR04",
+            "location": "front",
+            "offset_from_center_cm": -11.5,
+            "valid_range_cm": [2.0, 88.0]
+        },
+        "ultrasonic_water": {
+            "type": "JSN-SR04T",
+            "location": "front",
+            "offset_from_center_cm": 11.5,
+            "valid_range_cm": [2.0, 88.0]
+        },
+        "sharp_ir": {
+            "type": "GP2Y0A21YK0F",
+            "location": "rear",
+            "offset_from_center_cm": -11.5,
+            "valid_range_cm": [2.0, 88.0]
+        },
+        "ir_right": {
+            "type": "digital",
+            "description": "Right side wall detection IR"
+        },
+        "ir_left": {
+            "type": "digital",
+            "description": "Left side wall detection IR"
+        },
+        "limit_switch_1": {
+            "type": "digital",
+            "description": "Front limit switch"
+        },
+        "limit_switch_2": {
+            "type": "digital",
+            "description": "Rear limit switch"
+        },
+        "adc_channels": {
+            "count": 4,
+            "names": ["ch0", "ch1", "ch2", "ch3"]
+        }
+    },
+
+    "sensor_packet": {
+        "struct_format": "<3f4B2i9fB4f",
+        "header_byte": "0xAA",
+        "fields_in_order": [
+            "sharp_ir_distance",
+            "waterPultrasonic",
+            "ultrasonic",
+            "limit_switch_1",
+            "limit_switch_2",
+            "ir_right",
+            "ir_left",
+            "encoder_left",
+            "encoder_right",
+            "accel_x",
+            "accel_y",
+            "accel_z",
+            "gyro_x",
+            "gyro_y",
+            "gyro_z",
+            "temperature",
+            "pitch",
+            "roll",
+            "mpu_available",
+            "ch0",
+            "ch1",
+            "ch2",
+            "ch3"
+        ]
+    },
+
+    "velocity_packet": {
+        "struct_format": "<Bfff",
+        "fields": ["header", "vx", "vy", "vw"]
+    },
+
+    "position_fusion": {
+        "type": "kalman_2state",
+        "state": ["position_cm", "velocity_cm_per_s"],
+        "process_noise_Q": [[0.5, 0.0], [0.0, 2.0]],
+        "initial_covariance_P": [[1.0, 0.0], [0.0, 1.0]],
+        "measurement_noise_R": {
+            "encoder":  0.3,
+            "imu":      1.5,
+            "us_air":   1.0,
+            "us_water": 0.8,
+            "ir":       2.0
+        }
+    },
+
+    "scalar_position_fusion": {
+        "type": "kalman_1state",
+        "state": ["position_cm"],
+        "process_noise_Q": 0.5,
+        "initial_covariance_P": 1.0,
+        "sensor_offsets_cm": {
+            "us_air":   -11.5,
+            "us_water":  11.5,
+            "ir":       -11.5
+        },
+        "measurement_noise_R": {
+            "encoder":  0.3,
+            "us_air":   1.0,
+            "us_water": 0.8,
+            "ir":       2.0
+        }
+    },
+
+    "weighted_fusion": {
+        "type": "weighted_average",
+        "noise_R": {
+            "encoder":  0.3,
+            "us_air":   1.0,
+            "us_water": 0.8,
+            "ir":       2.0
+        }
+    },
+
+    "localization": {
+        "cpr_left":  530,
+        "cpr_right": 510,
+        "wheel_diameter_cm": 8.0,
+        "wheel_base_cm": 23.0
+    },
+
+    "wall_tracker": {
+        "cpr": 460,
+        "wheel_diameter_cm": 8.0
+    },
+
+    "control": {
+        "goto_pose": {
+            "kp_linear":  1.5,
+            "kp_angular": 2.0,
+            "max_linear_vel": 0.3,
+            "max_angular_vel": 1.0,
+            "xy_tolerance_cm": 1.0,
+            "theta_tolerance_deg": 2.0,
+            "timeout_s": 5.0
+        }
+    },
+
+    "notes": [
+        "This robot uses serial or WiFi communication — not Dynamixel actuators.",
+        "All manipulator-arm methods in snp_model.RobotModel return True (stubs).",
+        "All actuator methods in snp_esp_bridge.SNPBridgeController return True (stubs).",
+        "Use send_velocity(vx, vy, vw) for motion commands.",
+        "Use get_sensors() and Sensors.update_from_bytes() for sensor data."
+    ]
+}

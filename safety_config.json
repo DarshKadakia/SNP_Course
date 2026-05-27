@@ -1,0 +1,122 @@
+{
+  "actuator_limits": {
+      "1": {
+          "model": "XL330-M288",
+          "position": {
+              "min": -0.175,  
+              "max": 3.315    
+          },
+          "velocity": {
+              "max": 6.28,    
+              "min": -6.28
+          },
+          "current": {
+              "max": 1500,    
+              "min": -1500
+          },
+          "temperature": {
+              "max": 45      
+          },
+          "voltage": {
+              "min": 4.0,    
+              "max": 6.5
+          },
+          "acceleration": {
+              "max": 20.0     
+          },
+          "rate_limits": {
+              "position": 1.0,  
+              "velocity": 10.0,  
+              "torque": 0.5     
+          },
+          "max_position_error": 0.1, 
+          "monitoring": {
+              "position_tracking": true,
+              "velocity_tracking": true,
+              "current_tracking": true,
+              "temperature_tracking": true
+          }
+      },
+      "2": {
+          "model": "XL330-M288",
+          "position": {
+              "min": -0.175,
+              "max": 3.315
+          },
+          "velocity": {
+              "max": 6.28,
+              "min": -6.28
+          },
+          "current": {
+              "max": 1500,
+              "min": -1500
+          },
+          "temperature": {
+              "max": 45
+          },
+          "voltage": {
+              "min": 4.0,
+              "max": 6.0
+          },
+          "acceleration": {
+              "max": 20.0
+          },
+          "rate_limits": {
+              "position": 1.0,
+              "velocity": 10.0,
+              "torque": 0.5
+          },
+          "max_position_error": 0.08,
+          "monitoring": {
+              "position_tracking": true,
+              "velocity_tracking": true,
+              "current_tracking": true,
+              "temperature_tracking": true
+          }
+      },
+      "3": {
+          "model": "XL330-M288",
+          "position": {
+              "min": -0.175,
+              "max": 3.315
+          },
+          "velocity": {
+              "max": 6.28,
+              "min": -6.28
+          },
+          "current": {
+              "max": 1500,
+              "min": -1500
+          },
+          "temperature": {
+              "max": 45
+          },
+          "voltage": {
+              "min": 4.0,
+              "max": 6.0
+          },
+          "acceleration": {
+              "max": 20.0
+          },
+          "rate_limits": {
+              "position": 1.0,
+              "velocity": 10.0,
+              "torque": 0.5
+          },
+          "max_position_error": 0.1,
+          "monitoring": {
+              "position_tracking": true,
+              "velocity_tracking": true,
+              "current_tracking": true,
+              "temperature_tracking": true
+          }
+      }
+  },
+  "global_settings": {
+      "check_frequency": 100,          
+      "emergency_stop_timeout": 1.0,   
+      "safety_margin": 0.95,         
+      "enable_logging": true,
+      "log_file": "safety_logs.txt"
+  }
+}

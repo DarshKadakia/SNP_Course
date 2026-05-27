@@ -1,0 +1,479 @@
+{
+  "AB6_SNP_SNP_HW_01": {
+    "name": "Sensor State Identification",
+    "description": "Observe live sensor streams from ROBOX-SNP and identify what each data stream measures",
+    "parameters": {
+      "num_sensors": 14,
+      "max_time": 600.0
+    },
+    "success_criteria": {
+      "min_correct_sensors": 10
+    },
+    "performance_metrics": {
+      "accuracy": "number of sensors correctly identified",
+      "time": "time to complete"
+    }
+  },
+  "AB6_SNP_SNP_HW_02": {
+    "name": "Sensor Output Nature",
+    "description": "ROBOX-SNP live streams: Part 1 signal type (reading + analog/digital), Part 2 sensor name and unit",
+    "type": "hardware",
+    "parameters": {
+      "streams": 14,
+      "max_time": 600.0
+    },
+    "success_criteria": {
+      "min_score_percent": 60
+    },
+    "performance_metrics": {
+      "accuracy": "per-dropdown correctness across both parts",
+      "time": "time to complete"
+    }
+  },
+  "AB6_SNP_SNP_QZ_03": {
+    "name": "Sensor Principles Quiz",
+    "description": "Internal quiz; GUI-driven.",
+    "type": "course",
+    "parameters": {}
+  },
+  "AB6_CON_RBX_HW_004": {
+    "name": "Position Control with PD Tuning",
+    "description": "Control a single joint with PD tuning",
+    "parameters": {
+      "target_angle": {
+        "default": 1.57,
+        "min": -2.618,
+        "max": 2.618
+      },
+      "kp": {
+        "default": 10.0,
+        "min": 0.0,
+        "max": 16500.0
+      },
+      "kd": {
+        "default": 1.0,
+        "min": 0.0,
+        "max": 10.0
+      },
+      "max_time": 5.0,
+      "dt": 0.01
+    },
+    "success_criteria": {
+      "settling_time": 3.0,
+      "max_overshoot": 20.0,
+      "steady_state_error": 0.02
+    },
+    "performance_metrics": {
+      "settling_time": "time to reach within 2% of target",
+      "overshoot": "maximum overshoot percentage",
+      "steady_state_error": "final position error"
+    }
+  },
+  "AB6_SNP_SNP_HW_05": {
+    "name": "Sense It Your Way",
+    "description": "SNP distance challenge; GUI-driven.",
+    "type": "course",
+    "parameters": {}
+  },
+  "AB6_SNP_SNP_HW_06": {
+    "name": "The Right Sensor for the Right Job",
+    "description": "Maze navigation with code editor; mentor-evaluated (same runner pattern as timed lab challenges)",
+    "type": "target_pointing",
+    "parameters": {
+      "target_position": {
+        "x": 0.0,
+        "y": 0.25,
+        "z": 0.0
+      },
+      "target_tolerance": 0.01,
+      "max_duration": 60,
+      "visualization_update_rate": 0.1
+    },
+    "success_criteria": {
+      "min_percent_on_target": 60,
+      "max_pointing_error": 0.02
+    },
+    "performance_metrics": {
+      "percent_on_target": "percentage of time pointing at target within tolerance",
+      "mean_pointing_error": "average pointing error in meters",
+      "max_pointing_error": "maximum pointing error in meters"
+    },
+    "evaluation": {
+      "score_tiers": [
+        {
+          "threshold": 95,
+          "score": 100,
+          "description": "Excellent navigation / sensing choices"
+        },
+        {
+          "threshold": 80,
+          "score": 90,
+          "description": "Very good"
+        },
+        {
+          "threshold": 60,
+          "score": 75,
+          "description": "Good"
+        },
+        {
+          "threshold": 40,
+          "score": 60,
+          "description": "Fair"
+        }
+      ],
+      "default_score": 0
+    }
+  },
+  "AB6_SNP_SNP_HW_08": {
+    "name": "Navigate and Map",
+    "description": "Maze navigation with simultaneous mapping; code editor + map panel; mentor-evaluated (same runner pattern as AB6_SNP_SNP_HW_06)",
+    "type": "target_pointing",
+    "parameters": {
+      "target_position": {
+        "x": 0.0,
+        "y": 0.25,
+        "z": 0.0
+      },
+      "target_tolerance": 0.01,
+      "max_duration": 60,
+      "visualization_update_rate": 0.1
+    },
+    "success_criteria": {
+      "min_percent_on_target": 60,
+      "max_pointing_error": 0.02
+    },
+    "performance_metrics": {
+      "percent_on_target": "percentage of time pointing at target within tolerance",
+      "mean_pointing_error": "average pointing error in meters",
+      "max_pointing_error": "maximum pointing error in meters"
+    },
+    "evaluation": {
+      "score_tiers": [
+        {
+          "threshold": 95,
+          "score": 100,
+          "description": "Excellent navigation and map quality"
+        },
+        {
+          "threshold": 80,
+          "score": 90,
+          "description": "Very good"
+        },
+        {
+          "threshold": 60,
+          "score": 75,
+          "description": "Good"
+        },
+        {
+          "threshold": 40,
+          "score": 60,
+          "description": "Fair"
+        }
+      ],
+      "default_score": 0
+    }
+  },
+  "AB6_SNP_SNP_HW_09": {
+    "name": "Precision Line Tracking",
+    "description": "IR array line following on SNP platform; mentor-evaluated (same runner pattern as AB6_SNP_SNP_HW_08 / TM_016)",
+    "type": "target_pointing",
+    "parameters": {
+      "target_position": {
+        "x": 0.0,
+        "y": 0.25,
+        "z": 0.0
+      },
+      "target_tolerance": 0.01,
+      "max_duration": 60,
+      "visualization_update_rate": 0.1
+    },
+    "success_criteria": {
+      "min_percent_on_target": 60,
+      "max_pointing_error": 0.02
+    },
+    "performance_metrics": {
+      "percent_on_target": "percentage of time pointing at target within tolerance",
+      "mean_pointing_error": "average pointing error in meters",
+      "max_pointing_error": "maximum pointing error in meters"
+    },
+    "evaluation": {
+      "score_tiers": [
+        {
+          "threshold": 95,
+          "score": 100,
+          "description": "Excellent line tracking — smooth and consistent"
+        },
+        {
+          "threshold": 80,
+          "score": 90,
+          "description": "Very good"
+        },
+        {
+          "threshold": 60,
+          "score": 75,
+          "description": "Good"
+        },
+        {
+          "threshold": 40,
+          "score": 60,
+          "description": "Fair"
+        }
+      ],
+      "default_score": 0
+    }
+  },
+  "AB6_SNP_SNP_HW_10": {
+    "name": "Precision Docking",
+    "description": "Hidden-validation parking zone on SNP platform; dock status UI + mentor-evaluated (same runner pattern as AB6_SNP_SNP_HW_09)",
+    "type": "target_pointing",
+    "parameters": {
+      "target_position": {
+        "x": 0.0,
+        "y": 0.25,
+        "z": 0.0
+      },
+      "target_tolerance": 0.01,
+      "max_duration": 60,
+      "visualization_update_rate": 0.1
+    },
+    "success_criteria": {
+      "min_percent_on_target": 60,
+      "max_pointing_error": 0.02
+    },
+    "performance_metrics": {
+      "percent_on_target": "percentage of time pointing at target within tolerance",
+      "mean_pointing_error": "average pointing error in meters",
+      "max_pointing_error": "maximum pointing error in meters"
+    },
+    "evaluation": {
+      "score_tiers": [
+        {
+          "threshold": 95,
+          "score": 100,
+          "description": "Excellent docking — criteria understood and repeatable"
+        },
+        {
+          "threshold": 80,
+          "score": 90,
+          "description": "Very good"
+        },
+        {
+          "threshold": 60,
+          "score": 75,
+          "description": "Good"
+        },
+        {
+          "threshold": 40,
+          "score": 60,
+          "description": "Fair"
+        }
+      ],
+      "default_score": 0
+    }
+  },
+  "AB6_SNP_SNP_HW_11": {
+    "name": "Code Unlock — Pressure Sequence",
+    "description": "Secure access via correct pressure sequence on three buttons; lock-status UI + live pressure proxy + mentor-evaluated (same runner pattern as AB6_SNP_SNP_HW_10)",
+    "type": "target_pointing",
+    "parameters": {
+      "target_position": {
+        "x": 0.0,
+        "y": 0.25,
+        "z": 0.0
+      },
+      "target_tolerance": 0.01,
+      "max_duration": 60,
+      "visualization_update_rate": 0.1
+    },
+    "success_criteria": {
+      "min_percent_on_target": 60,
+      "max_pointing_error": 0.02
+    },
+    "performance_metrics": {
+      "percent_on_target": "percentage of time pointing at target within tolerance",
+      "mean_pointing_error": "average pointing error in meters",
+      "max_pointing_error": "maximum pointing error in meters"
+    },
+    "evaluation": {
+      "score_tiers": [
+        {
+          "threshold": 95,
+          "score": 100,
+          "description": "Excellent — sequence understood and repeatable"
+        },
+        {
+          "threshold": 80,
+          "score": 90,
+          "description": "Very good"
+        },
+        {
+          "threshold": 60,
+          "score": 75,
+          "description": "Good"
+        },
+        {
+          "threshold": 40,
+          "score": 60,
+          "description": "Fair"
+        }
+      ],
+      "default_score": 0
+    }
+  },
+  "AB6_SNP_SNP_HW_12": {
+    "name": "Teach by Touch",
+    "description": "Capacitive touch recording and replay on SNP; overview → instructions → code editor → mentor-evaluated (TM_016-style runner)",
+    "type": "target_pointing",
+    "parameters": {
+      "target_position": {
+        "x": 0.0,
+        "y": 0.25,
+        "z": 0.0
+      },
+      "target_tolerance": 0.01,
+      "max_duration": 60,
+      "visualization_update_rate": 0.1
+    },
+    "success_criteria": {
+      "min_percent_on_target": 60,
+      "max_pointing_error": 0.02
+    },
+    "performance_metrics": {
+      "percent_on_target": "percentage of time pointing at target within tolerance",
+      "mean_pointing_error": "average pointing error in meters",
+      "max_pointing_error": "maximum pointing error in meters"
+    },
+    "evaluation": {
+      "score_tiers": [
+        {
+          "threshold": 95,
+          "score": 100,
+          "description": "Excellent — teaching and replay reliable"
+        },
+        {
+          "threshold": 80,
+          "score": 90,
+          "description": "Very good"
+        },
+        {
+          "threshold": 60,
+          "score": 75,
+          "description": "Good"
+        },
+        {
+          "threshold": 40,
+          "score": 60,
+          "description": "Fair"
+        }
+      ],
+      "default_score": 0
+    }
+  },
+  "AB6_SNP_SNP_HW_13": {
+    "name": "Survive the Failure",
+    "description": "Maze navigation with silent sensor faults; split editor + placeholder right panel; mentor-evaluated (HW_12-style runner)",
+    "type": "target_pointing",
+    "parameters": {
+      "target_position": {
+        "x": 0.0,
+        "y": 0.25,
+        "z": 0.0
+      },
+      "target_tolerance": 0.01,
+      "max_duration": 60,
+      "visualization_update_rate": 0.1
+    },
+    "success_criteria": {
+      "min_percent_on_target": 60,
+      "max_pointing_error": 0.02
+    },
+    "performance_metrics": {
+      "percent_on_target": "percentage of time pointing at target within tolerance",
+      "mean_pointing_error": "average pointing error in meters",
+      "max_pointing_error": "maximum pointing error in meters"
+    },
+    "evaluation": {
+      "score_tiers": [
+        {
+          "threshold": 95,
+          "score": 100,
+          "description": "Excellent — resilient navigation under faults"
+        },
+        {
+          "threshold": 80,
+          "score": 90,
+          "description": "Very good"
+        },
+        {
+          "threshold": 60,
+          "score": 75,
+          "description": "Good"
+        },
+        {
+          "threshold": 40,
+          "score": 60,
+          "description": "Fair"
+        }
+      ],
+      "default_score": 0
+    }
+  },
+  "BONUS_1": {
+    "name": "Bonus Challenge - Advanced Robot Control",
+    "description": "Implement obstacle avoidance, impedance control, or admittance control",
+    "difficulty": "Advanced",
+    "points": 100,
+    "time_limit": null,
+    "requires_mentor_evaluation": true,
+    "challenge_type": "bonus"
+  },
+  "AB6_SNP_SNP_HW_14": {
+    "name": "Teleoperation",
+    "description": "Remote control challenge; operator inputs mapped to motor commands; mentor-evaluated (HW_13-style runner)",
+    "type": "target_pointing",
+    "parameters": {
+      "target_position": {
+        "x": 0.0,
+        "y": 0.25,
+        "z": 0.0
+      },
+      "target_tolerance": 0.01,
+      "max_duration": 60,
+      "visualization_update_rate": 0.1
+    },
+    "success_criteria": {
+      "min_percent_on_target": 60,
+      "max_pointing_error": 0.02
+    },
+    "performance_metrics": {
+      "percent_on_target": "percentage of time pointing at target within tolerance",
+      "mean_pointing_error": "average pointing error in meters",
+      "max_pointing_error": "maximum pointing error in meters"
+    },
+    "evaluation": {
+      "score_tiers": [
+        {
+          "threshold": 95,
+          "score": 100,
+          "description": "Excellent — resilient navigation under faults"
+        },
+        {
+          "threshold": 80,
+          "score": 90,
+          "description": "Very good"
+        },
+        {
+          "threshold": 60,
+          "score": 75,
+          "description": "Good"
+        },
+        {
+          "threshold": 40,
+          "score": 60,
+          "description": "Fair"
+        }
+      ],
+      "default_score": 0
+    }
+  }
+}

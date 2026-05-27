@@ -1,0 +1,148 @@
+{
+  "scoring_types": {
+    "binary": {
+      "type": "pass_fail",
+      "points": {
+        "pass": 100,
+        "fail": 0
+      },
+      "criteria": {
+        "tcc_threshold": 10.0
+      }
+    },
+    "graded": {
+      "type": "tiered",
+      "tiers": [
+        {
+          "threshold": 2.0,
+          "score": 100,
+          "description": "Excellent precision"
+        },
+        {
+          "threshold": 3.0,
+          "score": 90,
+          "description": "Very good precision"
+        },
+        {
+          "threshold": 5.0,
+          "score": 75,
+          "description": "Good precision"
+        },
+        {
+          "threshold": 7.0,
+          "score": 60,
+          "description": "Fair precision"
+        },
+        {
+          "threshold": 10.0,
+          "score": 50,
+          "description": "Basic precision"
+        }
+      ],
+      "default_score": 0
+    },
+    "progressive": {
+      "type": "continuous",
+      "base_score": 50,
+      "max_score": 100,
+      "scaling_factor": 5.0,
+      "metrics": {
+        "position_weight": 0.6,
+        "velocity_weight": 0.2,
+        "time_weight": 0.2
+      }
+    },
+    "mentor_evaluated": {
+      "type": "mentor_evaluated",
+      "points": {
+        "max": 100,
+        "min": 0
+      }
+    }
+  },
+  "challenge_configs": {
+    "AB6_SNP_SNP_HW_01": {
+      "scoring_type": "graded",
+      "weight": 1.2,
+      "metrics": [
+        "sensor_identification_accuracy"
+      ]
+    },
+    "AB6_SNP_SNP_HW_02": {
+      "scoring_type": "graded",
+      "weight": 1.2,
+      "metrics": [
+        "signal_type_accuracy",
+        "sensor_unit_mapping_accuracy"
+      ]
+    },
+    "AB6_SNP_SNP_QZ_03": {
+      "scoring_type": "graded",
+      "weight": 1.0,
+      "metrics": [
+        "quiz_score"
+      ]
+    },
+    "AB6_CON_RBX_HW_004": {
+      "scoring_type": "progressive",
+      "weight": 1.5,
+      "metrics": [
+        "settling_time",
+        "overshoot",
+        "steady_state_error"
+      ]
+    },
+    "AB6_SNP_SNP_HW_05": {
+      "scoring_type": "mentor_evaluated",
+      "weight": 1.0
+    },
+    "AB6_SNP_SNP_HW_06": {
+      "scoring_type": "mentor_evaluated",
+      "weight": 1.0
+    },
+    "AB6_SNP_SNP_HW_08": {
+      "scoring_type": "mentor_evaluated",
+      "weight": 1.0
+    },
+    "AB6_SNP_SNP_HW_09": {
+      "scoring_type": "mentor_evaluated",
+      "weight": 1.0
+    },
+    "AB6_SNP_SNP_HW_10": {
+      "scoring_type": "mentor_evaluated",
+      "weight": 1.0
+    },
+    "AB6_SNP_SNP_HW_11": {
+      "scoring_type": "mentor_evaluated",
+      "weight": 1.0
+    },
+    "AB6_SNP_SNP_HW_12": {
+      "scoring_type": "mentor_evaluated",
+      "weight": 1.0
+    },
+    "AB6_SNP_SNP_HW_13": {
+      "scoring_type": "mentor_evaluated",
+      "weight": 1.0
+    },
+    "BONUS_1": {
+      "scoring_type": "mentor_evaluated",
+      "weight": 1.0
+    },
+    "AB6_SNP_SNP_HW_14": {
+      "scoring_type": "mentor_evaluated",
+      "weight": 1.0
+    }
+  },
+  "performance_thresholds": {
+    "time_limits": {
+      "fast": 30,
+      "medium": 60,
+      "slow": 120
+    },
+    "accuracy_levels": {
+      "high": 2.0,
+      "medium": 5.0,
+      "low": 10.0
+    }
+  }
+}

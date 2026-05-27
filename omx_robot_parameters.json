@@ -1,0 +1,127 @@
+{
+    "robot_name": "OpenManipulator-X",
+    "num_links": 4,
+    "_comment": "OpenManipulator-X: 4-DOF manipulator with gripper. DH parameters based on official ROBOTIS specs.",
+    "links": [
+        {
+            "joint_type": "revolute",
+            "d": 0.077,
+            "a": 0.0,
+            "alpha": -1.5707963267948966,
+            "mass": 0.082,
+            "inertia_tensor": [
+                [0.00001, 0, 0],
+                [0, 0.00001, 0],
+                [0, 0, 0.00001]
+            ],
+            "center_of_mass": [0, 0, 0.0385],
+            "theta_offset": 0,
+            "actuator_id": 11,
+            "joint_limits": {
+                "position": {
+                    "min": -2.827,
+                    "max": 2.827
+                },
+                "velocity": {
+                    "max": 4.82,
+                    "min": -4.82
+                }
+            }
+        },
+        {
+            "joint_type": "revolute",
+            "d": 0.0,
+            "a": 0.128,
+            "alpha": 0.0,
+            "mass": 0.098,
+            "inertia_tensor": [
+                [0.00003, 0, 0],
+                [0, 0.00003, 0],
+                [0, 0, 0.00001]
+            ],
+            "center_of_mass": [0.064, 0, 0],
+            "theta_offset": -1.5707963267948966,
+            "actuator_id": 12,
+            "joint_limits": {
+                "position": {
+                    "min": -1.79,
+                    "max": 1.57
+                },
+                "velocity": {
+                    "max": 4.82,
+                    "min": -4.82
+                }
+            }
+        },
+        {
+            "joint_type": "revolute",
+            "d": 0.0,
+            "a": 0.024,
+            "alpha": 0.0,
+            "mass": 0.088,
+            "inertia_tensor": [
+                [0.00002, 0, 0],
+                [0, 0.00002, 0],
+                [0, 0, 0.00001]
+            ],
+            "center_of_mass": [0.012, 0, 0],
+            "theta_offset": 0,
+            "actuator_id": 13,
+            "joint_limits": {
+                "position": {
+                    "min": -0.94,
+                    "max": 1.38
+                },
+                "velocity": {
+                    "max": 4.82,
+                    "min": -4.82
+                }
+            }
+        },
+        {
+            "joint_type": "revolute",
+            "d": 0.0,
+            "a": 0.124,
+            "alpha": 0.0,
+            "mass": 0.051,
+            "inertia_tensor": [
+                [0.00001, 0, 0],
+                [0, 0.00001, 0],
+                [0, 0, 0.000005]
+            ],
+            "center_of_mass": [0.062, 0, 0],
+            "theta_offset": 0,
+            "actuator_id": 14,
+            "joint_limits": {
+                "position": {
+                    "min": -1.79,
+                    "max": 2.04
+                },
+                "velocity": {
+                    "max": 4.82,
+                    "min": -4.82
+                }
+            }
+        }
+    ],
+    "end_effector": {
+        "type": "gripper",
+        "actuator_id": 15,
+        "offset": [0.126, 0, 0],
+        "gripper_limits": {
+            "min_opening": 0.01,
+            "max_opening": 0.035
+        }
+    },
+    "friction_parameters": {
+        "coulomb_coefficients": [0.2, 0.2, 0.2, 0.2],
+        "viscous_coefficients": [0.1, 0.1, 0.1, 0.1],
+        "stiction_coefficients": [0.3, 0.3, 0.3, 0.3],
+        "stiction_velocity_thresholds": [0.01, 0.01, 0.01, 0.01]
+    },
+    "gravity_vector": [0, 0, -9.81],
+    "workspace": {
+        "reach_max": 0.380,
+        "reach_min": 0.100
+    }
+}

@@ -1,0 +1,97 @@
+{
+    "robot_name": "Franka Emika FR3",
+    "robot_ip": "192.168.1.11",
+    "robot_type": "FR3",
+    "num_joints": 7,
+    
+    "urdf_path": "/home/iitgn-robotics/ab6_franka_ws/pylibfranka/urdf/fr3.urdf",
+    "base_link": "fr3_link0",
+    "tip_link": "fr3_link8",
+    "ik_damping": 0.01,
+    
+    "joint_limits": {
+        "joint1": {
+            "position": {"lower": -2.3093, "upper": 2.3093},
+            "velocity": 2.0,
+            "torque": 87.0
+        },
+        "joint2": {
+            "position": {"lower": -1.5133, "upper": 1.5133},
+            "velocity": 1.0,
+            "torque": 87.0
+        },
+        "joint3": {
+            "position": {"lower": -2.4937, "upper": 2.4937},
+            "velocity": 1.5,
+            "torque": 87.0
+        },
+        "joint4": {
+            "position": {"lower": -2.7478, "upper": -0.4461},
+            "velocity": 1.25,
+            "torque": 87.0
+        },
+        "joint5": {
+            "position": {"lower": -2.4800, "upper": 2.4800},
+            "velocity": 3.0,
+            "torque": 12.0
+        },
+        "joint6": {
+            "position": {"lower": 0.8521, "upper": 4.2094},
+            "velocity": 1.5,
+            "torque": 12.0
+        },
+        "joint7": {
+            "position": {"lower": -2.6895, "upper": 2.6895},
+            "velocity": 3.0,
+            "torque": 12.0
+        }
+    },
+    
+    "dh_parameters": {
+        "description": "Modified DH parameters for FR3",
+        "units": {"d": "meters", "a": "meters", "alpha": "radians"},
+        "joints": [
+            {"joint": 1, "d": 0.333, "a": 0.0,    "alpha": 0.0},
+            {"joint": 2, "d": 0.0,   "a": 0.0,    "alpha": -1.5708},
+            {"joint": 3, "d": 0.316, "a": 0.0,    "alpha": 1.5708},
+            {"joint": 4, "d": 0.0,   "a": 0.0825, "alpha": 1.5708},
+            {"joint": 5, "d": 0.384, "a": -0.0825, "alpha": -1.5708},
+            {"joint": 6, "d": 0.0,   "a": 0.0,    "alpha": 1.5708},
+            {"joint": 7, "d": 0.107, "a": 0.088,  "alpha": 1.5708}
+        ]
+    },
+    
+    "link_masses": {
+        "units": "kg",
+        "values": [4.970684, 0.646926, 3.228604, 3.587895, 1.225946, 1.666555, 0.735522]
+    },
+    
+    "end_effector": {
+        "flange_to_ee": {
+            "description": "Transformation from flange to end-effector (F_T_EE)",
+            "translation": [0.0, 0.0, 0.1034],
+            "rotation": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+        },
+        "ee_mass": 0.73,
+        "ee_inertia": [0.001, 0.0, 0.0, 0.0, 0.0025, 0.0, 0.0, 0.0, 0.0017]
+    },
+    
+    "gripper": {
+        "type": "Franka Hand",
+        "max_width": 0.08,
+        "max_force": 70.0,
+        "max_speed": 0.2
+    },
+    
+    "home_position": {
+        "description": "Default home joint configuration",
+        "units": "radians",
+        "values": [0.0, -0.785, 0.0, -2.356, 0.0, 1.571, 0.785]
+    },
+    
+    "ready_position": {
+        "description": "Ready position for starting tasks",
+        "units": "radians",
+        "values": [0.0, 0.0, 0.0, -1.571, 0.0, 1.571, 0.0]
+    }
+}

@@ -1,0 +1,145 @@
+{
+    "port": "/dev/ttyUSB0",
+    "baudrate": 1000000,
+    "protocol_version": 2.0,
+    "_comment": "OpenManipulator-X motor IDs: 11-14 for joints, 15 for gripper",
+    "joint_ids": [11, 12, 13, 14],
+    "gripper_id": 15,
+    "actuators": [
+        {
+            "id": 11,
+            "name": "joint1_base",
+            "model": "XM430-W350",
+            "initial_mode": 3,
+            "limits": {
+                "position": {
+                    "min": 0,
+                    "max": 4095
+                },
+                "velocity": {
+                    "max": 330,
+                    "min": -330
+                },
+                "current": {
+                    "max": 1193,
+                    "min": -1193
+                },
+                "temperature": {
+                    "max": 80
+                },
+                "input_voltage": {
+                    "min": 10.0,
+                    "max": 14.8
+                }
+            }
+        },
+        {
+            "id": 12,
+            "name": "joint2_shoulder",
+            "model": "XM430-W350",
+            "initial_mode": 3,
+            "limits": {
+                "position": {
+                    "min": 0,
+                    "max": 4095
+                },
+                "velocity": {
+                    "max": 330,
+                    "min": -330
+                },
+                "current": {
+                    "max": 1193,
+                    "min": -1193
+                },
+                "temperature": {
+                    "max": 80
+                },
+                "input_voltage": {
+                    "min": 10.0,
+                    "max": 14.8
+                }
+            }
+        },
+        {
+            "id": 13,
+            "name": "joint3_elbow",
+            "model": "XM430-W350",
+            "initial_mode": 3,
+            "limits": {
+                "position": {
+                    "min": 0,
+                    "max": 4095
+                },
+                "velocity": {
+                    "max": 330,
+                    "min": -330
+                },
+                "current": {
+                    "max": 1193,
+                    "min": -1193
+                },
+                "temperature": {
+                    "max": 80
+                },
+                "input_voltage": {
+                    "min": 10.0,
+                    "max": 14.8
+                }
+            }
+        },
+        {
+            "id": 14,
+            "name": "joint4_wrist",
+            "model": "XM430-W350",
+            "initial_mode": 3,
+            "limits": {
+                "position": {
+                    "min": 0,
+                    "max": 4095
+                },
+                "velocity": {
+                    "max": 330,
+                    "min": -330
+                },
+                "current": {
+                    "max": 1193,
+                    "min": -1193
+                },
+                "temperature": {
+                    "max": 80
+                },
+                "input_voltage": {
+                    "min": 10.0,
+                    "max": 14.8
+                }
+            }
+        },
+        {
+            "id": 15,
+            "name": "gripper",
+            "model": "XM430-W350",
+            "initial_mode": 3,
+            "limits": {
+                "position": {
+                    "min": 0,
+                    "max": 4095
+                },
+                "velocity": {
+                    "max": 330,
+                    "min": -330
+                },
+                "current": {
+                    "max": 1193,
+                    "min": -1193
+                },
+                "temperature": {
+                    "max": 80
+                },
+                "input_voltage": {
+                    "min": 10.0,
+                    "max": 14.8
+                }
+            }
+        }
+    ]
+}

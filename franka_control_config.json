@@ -1,0 +1,92 @@
+{
+    "control_loop": {
+        "description": "Franka control loop runs at 1kHz",
+        "frequency_hz": 1000,
+        "period_ms": 1.0
+    },
+    
+    "collision_behavior": {
+        "description": "Thresholds for collision detection",
+        "lower_torque_thresholds_acceleration": [20.0, 20.0, 18.0, 18.0, 16.0, 14.0, 12.0],
+        "upper_torque_thresholds_acceleration": [20.0, 20.0, 18.0, 18.0, 16.0, 14.0, 12.0],
+        "lower_torque_thresholds_nominal": [20.0, 20.0, 18.0, 18.0, 16.0, 14.0, 12.0],
+        "upper_torque_thresholds_nominal": [20.0, 20.0, 18.0, 18.0, 16.0, 14.0, 12.0],
+        "lower_force_thresholds_acceleration": [20.0, 20.0, 20.0, 25.0, 25.0, 25.0],
+        "upper_force_thresholds_acceleration": [20.0, 20.0, 20.0, 25.0, 25.0, 25.0],
+        "lower_force_thresholds_nominal": [20.0, 20.0, 20.0, 25.0, 25.0, 25.0],
+        "upper_force_thresholds_nominal": [20.0, 20.0, 20.0, 25.0, 25.0, 25.0]
+    },
+    
+    "joint_impedance": {
+        "description": "Default joint impedance parameters",
+        "stiffness": [600.0, 600.0, 600.0, 600.0, 250.0, 150.0, 50.0],
+        "damping_ratio": 0.7
+    },
+    
+    "cartesian_impedance": {
+        "description": "Default Cartesian impedance parameters",
+        "translational_stiffness": [3000.0, 3000.0, 3000.0],
+        "rotational_stiffness": [300.0, 300.0, 300.0],
+        "damping_ratio": 0.7,
+        "nullspace_stiffness": 0.5
+    },
+    
+    "rate_limiting": {
+        "description": "Rate limiting for smooth motion",
+        "max_velocity_scaling": 1.0,
+        "max_acceleration_scaling": 1.0,
+        "max_jerk_scaling": 1.0
+    },
+    
+    "lowpass_filter": {
+        "description": "Lowpass filter cutoff frequencies",
+        "joint_position_cutoff_hz": 100.0,
+        "joint_velocity_cutoff_hz": 100.0,
+        "torque_cutoff_hz": 100.0
+    },
+    
+    "motion_generator": {
+        "description": "Parameters for trajectory generation",
+        "default_velocity_factor": 0.3,
+        "default_acceleration_factor": 0.3,
+        "default_jerk_factor": 0.3,
+        "min_motion_duration_s": 0.5
+    },
+    
+    "safety": {
+        "description": "Safety-related parameters",
+        "max_translational_velocity_m_s": 1.7,
+        "max_rotational_velocity_rad_s": 2.5,
+        "max_elbow_velocity_rad_s": 2.175,
+        "watchdog_timeout_ms": 100,
+        "enable_self_collision_avoidance": true,
+        "enable_joint_limit_avoidance": true
+    },
+    
+    "controller_modes": {
+        "description": "Available control modes from pylibfranka",
+        "joint_impedance": "JointImpedance",
+        "cartesian_impedance": "CartesianImpedance",
+        "joint_position": "start_joint_position_control",
+        "joint_velocity": "start_joint_velocity_control",
+        "cartesian_pose": "start_cartesian_pose_control",
+        "cartesian_velocity": "start_cartesian_velocity_control",
+        "torque": "start_torque_control"
+    },
+    
+    "network": {
+        "description": "Network configuration",
+        "robot_ip": "192.168.1.11",
+        "control_port": 1337,
+        "udp_port": 1338,
+        "timeout_ms": 1000,
+        "max_retries": 3
+    },
+    
+    "logging": {
+        "description": "Logging configuration",
+        "enable_state_logging": false,
+        "log_frequency_hz": 100,
+        "log_directory": "logs/franka"
+    }
+}
